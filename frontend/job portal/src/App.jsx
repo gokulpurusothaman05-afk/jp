@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
@@ -11,6 +10,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import JobSeekerDashboard from "./pages/JobSeekerDashboard";
 import EmployerDashboard from "./pages/EmployerDashboard";
+import CreateJob from "./pages/CreateJob";
+import JobApplicants from "./pages/JobApplicants";
 
 function App() {
   return (
@@ -39,6 +40,26 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={["employer"]}>
               <EmployerDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Post a new job */}
+        <Route
+          path="/employer/jobs/create"
+          element={
+            <ProtectedRoute allowedRoles={["employer"]}>
+              <CreateJob />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Job applicants */}
+        <Route
+          path="/employer/jobs/:jobId/applicants"
+          element={
+            <ProtectedRoute allowedRoles={["employer"]}>
+              <JobApplicants />
             </ProtectedRoute>
           }
         />

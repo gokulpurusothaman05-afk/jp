@@ -336,7 +336,7 @@ export const getEmployerDashboardSummary = async (req, res, next) => {
       employer: employerId
     });
 
-    const [totalJobs, activeJobs, closedJobs, totalApplications, recentJobs] =
+    const [totalJobs, activeJobs, closedJobs, totalApplications, rawRecentJobs, recentApplications] =
       await Promise.all([
         Job.countDocuments({ employer: employerId }),
 
@@ -355,12 +355,32 @@ export const getEmployerDashboardSummary = async (req, res, next) => {
           job: { $in: jobIds }
         }),
 
-        // Get the five most recently created jobs
+        // Get the most recently created jobs
         Job.find({ employer: employerId })
           .populate("company", "name logo")
           .sort({ createdAt: -1 })
-          .limit(5)
+          .limit(10),
+
+        // Get recent applications submitted to this employer's jobs
+        Application.find({
+          job: { $in: jobIds }
+        })
+          .populate("applicant", "name email")
+          .populate("job", "title location")
+          .sort({ createdAt: -1 })
+          .limit(20)
       ]);
+
+    // Attach applicant count to each job
+    const recentJobs = await Promise.all(
+      rawRecentJobs.map(async (job) => {
+        const applicantCount = await Application.countDocuments({ job: job._id });
+        return {
+          ...job.toObject(),
+          applicantCount
+        };
+      })
+    );
 
     res.status(200).json({
       success: true,
@@ -369,7 +389,8 @@ export const getEmployerDashboardSummary = async (req, res, next) => {
         activeJobs,
         closedJobs,
         totalApplications,
-        recentJobs
+        recentJobs,
+        recentApplications
       }
     });
   } catch (error) {

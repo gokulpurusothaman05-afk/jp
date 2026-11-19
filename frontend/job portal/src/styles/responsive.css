@@ -1,0 +1,526 @@
+/* ==========================================================================
+   SEPARATE RESPONSIVE & MOBILE ALIGNMENT STYLESHEET
+   Fixes layout, alignment, wrapping, overflow, and touch usability
+   ========================================================================== */
+
+/* Global Mobile Overflow Safeguard */
+@media (max-width: 1024px) {
+  html, body, #root, main {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* ==========================================================================
+   TABLET BREAKPOINT (max-width: 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* Navigation Bar */
+  .nav-container {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-links a {
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 70px 20px 60px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+    letter-spacing: -0.8px;
+  }
+
+  /* Category Grid */
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Features Grid */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  /* Dashboard Stats */
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Explore More Card */
+  .explore-more-card {
+    padding: 24px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE & SMALL TABLET BREAKPOINT (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Layout Containers */
+  .content-section,
+  .jobs-page,
+  .job-details-page,
+  .dashboard-page,
+  .applicants-page,
+  .create-job-page {
+    padding: 40px 18px 60px;
+  }
+
+  /* Navigation Bar */
+  .nav-container {
+    padding: 12px 16px;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    padding-top: 10px;
+    margin-top: 6px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-actions span {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .register-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 56px 16px 45px;
+  }
+
+  .hero-label-badge {
+    font-size: 11px;
+    padding: 5px 12px;
+    letter-spacing: 0.8px;
+    margin-bottom: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .hero-content > p {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  /* Search Form Mobile Alignment */
+  .search-form {
+    flex-direction: column;
+    padding: 14px;
+    gap: 10px;
+    width: 100%;
+    border-radius: var(--radius-lg);
+  }
+
+  .search-input-wrapper {
+    width: 100%;
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+  }
+
+  .location-wrapper {
+    border-left: 1.5px solid var(--border-color);
+    width: 100%;
+  }
+
+  .search-submit-btn,
+  .search-form button {
+    width: 100%;
+    justify-content: center;
+    padding: 13px;
+    font-size: 15px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Popular Tags Row */
+  .popular-tags-row {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .tags-list {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .quick-tag-pill {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  /* Section Headings */
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 26px;
+  }
+
+  .view-all-link {
+    align-self: flex-start;
+  }
+
+  /* Featured Jobs Vertical List */
+  .featured-jobs-grid {
+    gap: 14px;
+    width: 100%;
+  }
+
+  .job-card {
+    padding: 20px 18px;
+    border-radius: var(--radius-md);
+  }
+
+  .job-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .job-type {
+    align-self: flex-start;
+  }
+
+  .job-meta {
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  .job-meta span {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .job-details-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+
+  /* Explore More Action Card */
+  .explore-more-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 18px;
+    gap: 16px;
+  }
+
+  .explore-card-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .explore-icon-circle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .explore-card-content h3 {
+    font-size: 18px;
+  }
+
+  .explore-card-content p {
+    font-size: 13px;
+  }
+
+  .explore-card-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  /* Job Filters Mobile */
+  .job-filters {
+    grid-template-columns: 1fr;
+    padding: 18px 16px;
+    gap: 10px;
+  }
+
+  .job-filters button[type="submit"],
+  .job-filters button[type="button"] {
+    width: 100%;
+  }
+
+  /* Dashboard Adjustments */
+  .dashboard-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .dashboard-primary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .job-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .job-item-actions {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .view-applicants-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .applicant-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .applicant-info-block {
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .applicant-status-controls {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .quick-status-selector {
+    width: 100%;
+  }
+
+  .quick-status-selector select {
+    width: 100%;
+  }
+
+  /* Create Job Form */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .form-actions button,
+  .cancel-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   MOBILE PHONES BREAKPOINT (max-width: 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Layout Spacing */
+  .content-section,
+  .jobs-page,
+  .job-details-page,
+  .dashboard-page,
+  .applicants-page,
+  .create-job-page {
+    padding: 30px 14px 50px;
+  }
+
+  /* Typography */
+  .hero-content h1 {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+  }
+
+  .section-heading h2,
+  .section-heading-center h2 {
+    font-size: 22px;
+    letter-spacing: -0.3px;
+  }
+
+  .jobs-container > h1,
+  .dashboard-container h1,
+  .applicants-header h1 {
+    font-size: 24px;
+    letter-spacing: -0.4px;
+  }
+
+  /* Categories Grid Single Column */
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .category-card {
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .category-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .category-details h3 {
+    font-size: 15px;
+  }
+
+  .category-details p {
+    font-size: 12px;
+  }
+
+  /* Features Grid Single Column */
+  .features-section {
+    padding: 50px 14px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .feature-card {
+    padding: 22px 16px;
+  }
+
+  .feature-icon-box {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 14px;
+  }
+
+  /* Single Column Dashboard Stats */
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 18px 16px;
+  }
+
+  .stat-card p {
+    font-size: 28px;
+  }
+
+  /* Job Cards on Small Mobile */
+  .job-card {
+    padding: 18px 14px;
+  }
+
+  .job-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .job-meta span {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Cards Padding */
+  .job-details-card,
+  .application-form-container,
+  .create-job-card,
+  .auth-form,
+  .auth-card,
+  .applicant-card {
+    padding: 20px 14px;
+  }
+
+  /* Applicants Page Mobile */
+  .applicants-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .applicants-filters {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 14px;
+  }
+
+  .applicants-filters select {
+    width: 100%;
+  }
+
+  .applicant-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .applicant-meta-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .status-updater {
+    width: 100%;
+  }
+
+  .status-updater select {
+    width: 100%;
+  }
+
+  .applicant-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .resume-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer */
+  footer {
+    padding: 22px 16px;
+    font-size: 13px;
+  }
+}

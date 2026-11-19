@@ -304,3 +304,21 @@ export const getJobSeekerDashboardSummary = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getAllEmployerApplications = async (req, res, next) => {
+  try {
+    const jobIds = await Job.distinct("_id", { employer: req.user.id });
+    const applications = await Application.find({ job: { $in: jobIds } })
+      .populate("applicant", "name email")
+      .populate("job", "title location")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: applications.length,
+      applications
+    });
+  } catch (error) {
+    next(error);
+  }
+};

@@ -29,3 +29,15 @@ export const createCompany = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getEmployerCompanies = async (req, res, next) => {
+  try {
+    const companies = await Company.find({ employer: req.user.id });
+    res.status(200).json({
+      success: true,
+      companies
+    });
+  } catch (error) {
+    next(error);
+  }
+};

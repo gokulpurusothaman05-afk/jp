@@ -36,6 +36,14 @@ function Jobs() {
   const queryString = searchParams.toString();
 
   useEffect(() => {
+    setSearch(searchParams.get("search") || "");
+    setLocation(searchParams.get("location") || "");
+    setJobType(searchParams.get("jobType") || "");
+    setExperience(searchParams.get("experience") || "");
+    setSort(searchParams.get("sort") || "newest");
+  }, [searchParams]);
+
+  useEffect(() => {
     let isActive = true;
 
     const fetchJobs = async () => {

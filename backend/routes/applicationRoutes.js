@@ -1,10 +1,13 @@
 import express from "express";
-import { createApplication ,
+import {
+  createApplication,
   getMyApplications,
   getApplicationById,
   getJobApplicants,
   updateApplicationStatus,
-  getJobSeekerDashboardSummary } from "../controllers/applicationController.js";
+  getJobSeekerDashboardSummary,
+  getAllEmployerApplications
+} from "../controllers/applicationController.js";
 import protect from "../middleware/authMiddleware.js";
 import authorizeRoles from "../middleware/roleMiddleware.js";
 
@@ -22,6 +25,8 @@ router.get(
   authorizeRoles("jobSeeker"),
   getJobSeekerDashboardSummary
 );
+
+router.get("/employer/all", protect, authorizeRoles("employer"), getAllEmployerApplications);
 
 router.get("/:applicationId", protect, authorizeRoles("jobSeeker"), getApplicationById);
 
