@@ -18,13 +18,14 @@ import errorMiddleware from "./middleware/errorMiddleware.js";
 dotenv.config();
 
 const app = express();
-
+app.use(helmet());
 app.use(cors({
   origin: process.env.CLIENT_URL
 }));
 
 app.use(express.json());
 app.use(requestLogger);
+
 app.use("/api", apiLimiter);
 
 app.get("/api/health", (req, res) => {
