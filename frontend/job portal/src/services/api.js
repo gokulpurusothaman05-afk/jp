@@ -1,10 +1,13 @@
-
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const apiRequest = async (endpoint, options = {}) => {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`${API_URL}${endpoint}`, {
+  // Remove unnecessary slashes when combining URLs
+  const baseURL = API_URL.replace(/\/+$/, "");
+  const cleanEndpoint = endpoint.replace(/^\/+/, "");
+
+  const response = await fetch(`${baseURL}/${cleanEndpoint}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
